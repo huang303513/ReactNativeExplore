@@ -36,6 +36,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* AndroidNativeCustomRefreshViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AndroidNativeCustomRefreshViewTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		39D268CEF506CCD8E6A202A0 /* libPods-AndroidNativeCustomRefreshView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148270E94E6DE7BDA6661D3F /* libPods-AndroidNativeCustomRefreshView.a */; };
 		4D190D372230E695000CC7C5 /* RNSTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D190D362230E695000CC7C5 /* RNSTableFooterView.m */; };
 		4D190D5F2230E6C9000CC7C5 /* RNSTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D190D5E2230E6C9000CC7C5 /* RNSTableHeaderView.m */; };
 		4D190D622230E6F4000CC7C5 /* RNSTableHeaderViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D190D612230E6F4000CC7C5 /* RNSTableHeaderViewManager.m */; };
@@ -73,6 +74,8 @@
 		4DBE5BF2223005D800C3D3AA /* RNSHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBE5BF1223005D800C3D3AA /* RNSHomeCell.m */; };
 		4DCDE4EE222FC5970012DF76 /* RNSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDE4ED222FC5970012DF76 /* RNSTableView.m */; };
 		4DCDE4F1222FC7E10012DF76 /* RNSTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDE4F0222FC7E10012DF76 /* RNSTableViewManager.m */; };
+		6073A39D8B2FE5A7C74F0570 /* libPods-AndroidNativeCustomRefreshView-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268AA7AACC27EE98E99DEBA /* libPods-AndroidNativeCustomRefreshView-tvOSTests.a */; };
+		73C3D8A614DF63D98A06F279 /* libPods-AndroidNativeCustomRefreshViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FA6683B6097486017C7854 /* libPods-AndroidNativeCustomRefreshViewTests.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
@@ -375,6 +378,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AndroidNativeCustomRefreshView/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AndroidNativeCustomRefreshView/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		148270E94E6DE7BDA6661D3F /* libPods-AndroidNativeCustomRefreshView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AndroidNativeCustomRefreshView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B3832EBDD8BC0884E72CBF3 /* Pods-AndroidNativeCustomRefreshView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndroidNativeCustomRefreshView.debug.xcconfig"; path = "Target Support Files/Pods-AndroidNativeCustomRefreshView/Pods-AndroidNativeCustomRefreshView.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* AndroidNativeCustomRefreshView-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AndroidNativeCustomRefreshView-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AndroidNativeCustomRefreshView-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AndroidNativeCustomRefreshView-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -459,9 +464,16 @@
 		4DCDE4EF222FC7E10012DF76 /* RNSTableViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSTableViewManager.h; sourceTree = "<group>"; };
 		4DCDE4F0222FC7E10012DF76 /* RNSTableViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSTableViewManager.m; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		7268AA7AACC27EE98E99DEBA /* libPods-AndroidNativeCustomRefreshView-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AndroidNativeCustomRefreshView-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77FA6683B6097486017C7854 /* libPods-AndroidNativeCustomRefreshViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AndroidNativeCustomRefreshViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		BE3108437CE22DDAEC6252BB /* Pods-AndroidNativeCustomRefreshViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndroidNativeCustomRefreshViewTests.release.xcconfig"; path = "Target Support Files/Pods-AndroidNativeCustomRefreshViewTests/Pods-AndroidNativeCustomRefreshViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		D5DB79D7F4080D3D9E619D72 /* Pods-AndroidNativeCustomRefreshViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndroidNativeCustomRefreshViewTests.debug.xcconfig"; path = "Target Support Files/Pods-AndroidNativeCustomRefreshViewTests/Pods-AndroidNativeCustomRefreshViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D70284A426DBE95D2E5EBEDE /* Pods-AndroidNativeCustomRefreshView-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndroidNativeCustomRefreshView-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-AndroidNativeCustomRefreshView-tvOSTests/Pods-AndroidNativeCustomRefreshView-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		DB8AECCB26C2FE00E4523B2F /* Pods-AndroidNativeCustomRefreshView-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndroidNativeCustomRefreshView-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-AndroidNativeCustomRefreshView-tvOSTests/Pods-AndroidNativeCustomRefreshView-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E7704950F0D44B7124CB93BE /* Pods-AndroidNativeCustomRefreshView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndroidNativeCustomRefreshView.release.xcconfig"; path = "Target Support Files/Pods-AndroidNativeCustomRefreshView/Pods-AndroidNativeCustomRefreshView.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -472,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				73C3D8A614DF63D98A06F279 /* libPods-AndroidNativeCustomRefreshViewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +505,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				39D268CEF506CCD8E6A202A0 /* libPods-AndroidNativeCustomRefreshView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+				6073A39D8B2FE5A7C74F0570 /* libPods-AndroidNativeCustomRefreshView-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,8 +676,25 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				148270E94E6DE7BDA6661D3F /* libPods-AndroidNativeCustomRefreshView.a */,
+				7268AA7AACC27EE98E99DEBA /* libPods-AndroidNativeCustomRefreshView-tvOSTests.a */,
+				77FA6683B6097486017C7854 /* libPods-AndroidNativeCustomRefreshViewTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44BC8A3466BA2A2F6925D602 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B3832EBDD8BC0884E72CBF3 /* Pods-AndroidNativeCustomRefreshView.debug.xcconfig */,
+				E7704950F0D44B7124CB93BE /* Pods-AndroidNativeCustomRefreshView.release.xcconfig */,
+				DB8AECCB26C2FE00E4523B2F /* Pods-AndroidNativeCustomRefreshView-tvOSTests.debug.xcconfig */,
+				D70284A426DBE95D2E5EBEDE /* Pods-AndroidNativeCustomRefreshView-tvOSTests.release.xcconfig */,
+				D5DB79D7F4080D3D9E619D72 /* Pods-AndroidNativeCustomRefreshViewTests.debug.xcconfig */,
+				BE3108437CE22DDAEC6252BB /* Pods-AndroidNativeCustomRefreshViewTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		4D190D632230F73C000CC7C5 /* MJRefresh */ = {
@@ -846,6 +878,7 @@
 				00E356EF1AD99517003FC87E /* AndroidNativeCustomRefreshViewTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				44BC8A3466BA2A2F6925D602 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -879,6 +912,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AndroidNativeCustomRefreshViewTests" */;
 			buildPhases = (
+				97DFA7125795E634ACE9E834 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -897,10 +931,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AndroidNativeCustomRefreshView" */;
 			buildPhases = (
+				A316441744F426674CC6A5F7 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				46A8F243FD9EB06F81089EBA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -933,6 +969,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AndroidNativeCustomRefreshView-tvOSTests" */;
 			buildPhases = (
+				B73D28FF791348101F9B6940 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -1372,6 +1409,94 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		46A8F243FD9EB06F81089EBA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AndroidNativeCustomRefreshView/Pods-AndroidNativeCustomRefreshView-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AndroidNativeCustomRefreshView/Pods-AndroidNativeCustomRefreshView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97DFA7125795E634ACE9E834 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AndroidNativeCustomRefreshViewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A316441744F426674CC6A5F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AndroidNativeCustomRefreshView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B73D28FF791348101F9B6940 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AndroidNativeCustomRefreshView-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1475,6 +1600,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5DB79D7F4080D3D9E619D72 /* Pods-AndroidNativeCustomRefreshViewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = NW24FZY99S;
@@ -1497,6 +1623,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE3108437CE22DDAEC6252BB /* Pods-AndroidNativeCustomRefreshViewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1516,6 +1643,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B3832EBDD8BC0884E72CBF3 /* Pods-AndroidNativeCustomRefreshView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1537,6 +1665,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7704950F0D44B7124CB93BE /* Pods-AndroidNativeCustomRefreshView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1609,6 +1738,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB8AECCB26C2FE00E4523B2F /* Pods-AndroidNativeCustomRefreshView-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1634,6 +1764,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D70284A426DBE95D2E5EBEDE /* Pods-AndroidNativeCustomRefreshView-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
