@@ -46,7 +46,7 @@ export default class App extends Component {
         <FlatList style={styles.flatList}
           renderItem={'RNSHomeCell'}
           ListHeaderComponent={this.getView()}
-          ListFooterComponent={this.getView()}
+          // ListFooterComponent={this.getView()}
           data={data}
           onClickItem={this.onClickItem}
           onRefresh={this.onRefresh}

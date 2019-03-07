@@ -54,10 +54,10 @@
   self.originPriceLabel = [RNSHomeCell configLabelWithFont:[UIFont systemFontOfSize:12] color:RGBColorHex(0x333333) textAlign:NSTextAlignmentLeft];
   [self.placeView addSubview:self.originPriceLabel];
   
-  self.awardLabel = [RNSHomeCell configLabelWithFont:[UIFont systemFontOfSize:12] color:[UIColor redColor] textAlign:NSTextAlignmentLeft];
+  self.awardLabel = [RNSHomeCell configLabelWithFont:[UIFont systemFontOfSize:12] color:[UIColor redColor] textAlign:NSTextAlignmentRight];
   [self.placeView addSubview:self.awardLabel];
   
-  self.soldCountLabel = [RNSHomeCell configLabelWithFont:[UIFont systemFontOfSize:12] color:RGBColorHex(0x333333) textAlign:NSTextAlignmentLeft];;
+  self.soldCountLabel = [RNSHomeCell configLabelWithFont:[UIFont systemFontOfSize:12] color:RGBColorHex(0x333333) textAlign:NSTextAlignmentRight];;
   [self.placeView addSubview:self.soldCountLabel];
 }
 
@@ -123,14 +123,14 @@
   //奖励
   NSString *buy_bonus = [params valueForKey:@"buy_bonus"];
   //销量
-  NSInteger volume = [params valueForKey:@"volume"];
+  NSString *volume = [params valueForKey:@"volume"];
   
   [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
   self.titleLabel.text = title;
   self.discountPriceLabel.text = [NSString stringWithFormat:@"券后￥%@",finalPrice];
   self.originPriceLabel.text = [NSString stringWithFormat:@"淘宝价￥%@",price];
   self.awardLabel.text = [NSString stringWithFormat:@"奖￥%@",buy_bonus];
-  self.soldCountLabel.text = [NSString stringWithFormat:@"越小%d",volume];
+  self.soldCountLabel.text = [NSString stringWithFormat:@"月销%@",volume];
 
 }
 
