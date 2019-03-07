@@ -10,6 +10,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import FlatList from './FlatList/';
+import dataList from './home';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,7 +26,8 @@ export default class App extends Component {
     this.state = {
       refreshing: false,
       numColumns: 1,
-      data: [],
+      fullListLoaded: false,
+      data: dataList,
     }
   }
 
@@ -38,7 +40,7 @@ export default class App extends Component {
   }
 
   render() {
-    const {data, refreshing} = this.state;
+    const {data, refreshing,fullListLoaded} = this.state;
     return (
       <View style={styles.container}>
         <FlatList style={styles.flatList}
@@ -49,7 +51,8 @@ export default class App extends Component {
           onClickItem={this.onClickItem}
           onRefresh={this.onRefresh}
           onEndReached={this.onEndReached}
-          fullListLoaded={false}
+          // rowHeight={60}
+          fullListLoaded={fullListLoaded}
           columns={1}
           refreshing={refreshing}
         />
@@ -65,10 +68,7 @@ export default class App extends Component {
     this.setState({
       refreshing:true,
     })
-    let temp = [];
-    for(let i = 0; i < 10; i++){
-      temp.push({title:Date.now().toLocaleString()})
-    }
+    let temp = dataList;
     setTimeout(() =>{
       this.setState({
         data: temp,
@@ -84,14 +84,15 @@ export default class App extends Component {
     const {data} = this.state;
     let temp = [];
     for(let i = 0; i < 10; i++){
-      temp.push({title:Date.now().toLocaleString()})
+      temp = temp.concat(dataList)
     }
     setTimeout(() =>{
       this.setState({
         data: data.concat(temp),
         refreshing:false,
+        fullListLoaded: data.concat(temp).length>=300?true:false,
       })
-    },5000);
+    },1000);
   }
 }
 
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: 'yellow',
+    backgroundColor: '#333333',
   },
   flatList:{
     // position: 'absolute',

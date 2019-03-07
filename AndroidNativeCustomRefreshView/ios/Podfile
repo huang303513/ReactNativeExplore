@@ -8,6 +8,7 @@ target 'AndroidNativeCustomRefreshView' do
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'Masonry'
   pod 'MJRefresh'
+  pod 'SDWebImage', '~> 4.0'
 
   # Pods for AndroidNativeCustomRefreshView
 

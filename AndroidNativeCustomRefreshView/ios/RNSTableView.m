@@ -13,6 +13,7 @@
 #import "RNSCellProtocol.h"
 #import "RNSTableHeaderView.h"
 #import "RNSTableFooterView.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 
 NSString *const RNSTableViewCellIdentifier = @"RNSTableViewCellIdentifier";
@@ -24,6 +25,8 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 @property (nonatomic, copy) RCTDirectEventBlock onRefresh;
 @property (nonatomic, copy) RCTDirectEventBlock onEndReached;
 
+@property(nonatomic, assign)CGFloat cacheHeight;
+
 @property(nonatomic, strong)id cellClass;
 @end
 
@@ -33,15 +36,13 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 - (instancetype)init{
   self = [super init];
   if (self) {
-    self.backgroundColor = [UIColor greenColor];
+    self.backgroundColor = [UIColor whiteColor];
     
     self.tableView = [[UITableView alloc]init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.layer.borderColor = [[UIColor redColor] CGColor];;
-    self.tableView.layer.borderWidth = 1;
     [self addSubview:self.tableView];
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
       make.edges.equalTo(self);
@@ -51,7 +52,7 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
     MJRefreshAutoNormalFooter * footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
       __strong __typeof(weakSelf) strongSelf = weakSelf;
       if ([strongSelf.tableView.mj_header isRefreshing]) {
-        [strongSelf.tableView.mj_footer endRefreshing];
+        [strongSelf.tableView.mj_footer setState:MJRefreshStateIdle];
         return;
       }
       strongSelf.onEndReached(@{});
@@ -64,8 +65,11 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
       __strong __typeof(weakSelf) strongSelf = weakSelf;
       if ([strongSelf.tableView.mj_footer isRefreshing]) {
-        [strongSelf.tableView.mj_header endRefreshing];
+        [strongSelf.tableView.mj_header setState:MJRefreshStateIdle];
         return;
+      }
+      if (self.tableView.mj_footer.state == MJRefreshStateNoMoreData) {
+        [self.tableView.mj_footer setState:MJRefreshStateIdle];
       }
       strongSelf.onRefresh(@{});
     }];
@@ -76,8 +80,7 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 
 -(void)setData:(NSArray *)data{
   _data = data;
-  [self.tableView.mj_footer endRefreshing];
-  [self.tableView.mj_header endRefreshing];
+  [self endRefresh];
   [self.tableView reloadData];
 }
 
@@ -93,22 +96,50 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 - (void)setRefreshing:(BOOL)refreshing{
   _refreshing = refreshing;
   if (!refreshing) {
-    [self.tableView.mj_footer endRefreshing];
-    [self.tableView.mj_header endRefreshing];
+    [self endRefresh];
   }
+}
+
+- (void)endRefresh{
+  if (self.tableView.mj_footer.state == MJRefreshStateRefreshing) {
+    [self.tableView.mj_footer setState:MJRefreshStateIdle];
+  }else if(self.tableView.mj_header.state == MJRefreshStateRefreshing){
+    [self.tableView.mj_header setState:MJRefreshStateIdle];
+  }
+}
+
+
+-(void)setRowHeight:(CGFloat)rowHeight{
+  _rowHeight = rowHeight;
+  self.tableView.estimatedRowHeight = rowHeight;
+}
+
+- (void)setFullListLoaded:(BOOL)fullListLoaded{
+  _fullListLoaded = fullListLoaded;
+  if (fullListLoaded) {
+    [self.tableView.mj_footer setState:MJRefreshStateNoMoreData];
+  }else{
+    [self.tableView.mj_footer setState:MJRefreshStateIdle];
+  }
+}
+
+- (void)setCacheHeight:(CGFloat)cacheHeight{
+  _cacheHeight = cacheHeight;
+  self.tableView.estimatedRowHeight = _cacheHeight;
 }
 
 - (void)insertReactSubview:(UIView *)subview atIndex:(NSInteger)atIndex
 {
- if ([subview isKindOfClass:[RNSTableFooterView class]]){
+  if ([subview isKindOfClass:[RNSTableFooterView class]]){
     RNSTableFooterView *footerView = (RNSTableFooterView *)subview;
    self.tableView.tableFooterView = footerView;
+   return;
   } else if ([subview isKindOfClass:[RNSTableHeaderView class]]){
     RNSTableHeaderView *headerView = (RNSTableHeaderView *)subview;
     self.tableView.tableHeaderView = headerView;
-  }else{
-    [super insertSubview:subview atIndex:atIndex];
+    return;
   }
+  [super insertSubview:subview atIndex:atIndex];
 }
 
 
@@ -133,19 +164,41 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
         cell = [[UITableViewCell<RNSCellProtocol> alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RNSDefaultTableViewCellIdentifier];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
   }
-  NSDictionary *params = self.data[indexPath.row];
-  [cell setupCellWithParams:params];
+  if (self.data.count > indexPath.row) {
+    NSDictionary *params = self.data[indexPath.row];
+    [cell setupCellWithParams:params];
+  }
   return cell;
 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  return 50;
+  if (self.rowHeight) {
+    return self.rowHeight;
+  }
+  if (self.cacheHeight > 0) {
+    return self.cacheHeight;
+  }
+  if (self.cellClass) {
+    CGFloat height = [tableView fd_heightForCellWithIdentifier:RNSTableViewCellIdentifier configuration:^(id cell) {
+      if (self.data.count > indexPath.row) {
+        NSDictionary *params = self.data[indexPath.row];
+        [cell setupCellWithParams:params];
+      }
+    }];
+    self.cacheHeight = height;
+    return height;
+  }
+  return [tableView fd_heightForCellWithIdentifier:RNSDefaultTableViewCellIdentifier configuration:^(id cell) {
+  }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  self.onClickItem(@{@"index":@(indexPath.row)});
+  if (self.data.count > indexPath.row) {
+    self.onClickItem(@{@"index":@(indexPath.row)});
+  }
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

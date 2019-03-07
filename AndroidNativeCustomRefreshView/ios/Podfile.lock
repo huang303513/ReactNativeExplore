@@ -1,24 +1,30 @@
 PODS:
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.7)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
   - "UITableView+FDTemplateLayoutCell (1.6)"
 
 DEPENDENCIES:
   - Masonry
   - MJRefresh
+  - SDWebImage (~> 4.0)
   - "UITableView+FDTemplateLayoutCell"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Masonry
     - MJRefresh
+    - SDWebImage
     - "UITableView+FDTemplateLayoutCell"
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
 
-PODFILE CHECKSUM: 2ade5b10acb91ac5ae320dd34444abfc0ae30ba9
+PODFILE CHECKSUM: fadb0cfeb8838f53a26909d4aff4a9fbdb41b42d
 
 COCOAPODS: 1.6.0

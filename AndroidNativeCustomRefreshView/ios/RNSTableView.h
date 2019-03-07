@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy)NSArray *data;
 @property(nonatomic, copy)NSString *renderItem;
 @property(nonatomic, assign)BOOL refreshing;
-
+@property(nonatomic, assign)CGFloat rowHeight;
+@property(nonatomic, assign)BOOL fullListLoaded;
 
 @end
 
