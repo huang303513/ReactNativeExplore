@@ -82,15 +82,13 @@ export default class App extends Component {
       refreshing:true,
     })
     const {data} = this.state;
-    let temp = [];
-    for(let i = 0; i < 10; i++){
-      temp = temp.concat(dataList)
-    }
+    
+    let temp = data.concat(dataList).concat(dataList);
     setTimeout(() =>{
       this.setState({
-        data: data.concat(temp),
+        data: temp,
         refreshing:false,
-        fullListLoaded: data.concat(temp).length>=300?true:false,
+        fullListLoaded: temp.length>=300?true:false,
       })
     },1000);
   }
