@@ -25,35 +25,44 @@ export default class App extends Component {
     super(props);
     this.state = {
       refreshing: false,
-      numColumns: 1,
+      numColumns: 3,
       fullListLoaded: false,
       data: dataList,
     }
   }
 
   getView() {
-    return <View>
+    return <View style={styles.xx}>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text> Hello </Text>
     </View>;
   }
 
+  getView1() {
+    return <View>
+      <Text style={styles.welcome}>We大法师t Native!</Text>
+      <Text style={styles.welcome}>We大法师t Native!</Text>
+      <Text style={styles.welcome}>We大法师t Native!</Text>
+      <Text style={styles.welcome}>We大法师t Native!</Text>
+    </View>;
+  }
+
   render() {
-    const {data, refreshing,fullListLoaded} = this.state;
+    const {data, refreshing,fullListLoaded, numColumns} = this.state;
     return (
       <View style={styles.container}>
         <FlatList style={styles.flatList}
-          renderItem={'RNSHomeCell'}
+          renderItem={(numColumns === 1)?'RNSHomeCell':'RNSCategoryCollectionViewCell'}
           ListHeaderComponent={this.getView()}
-          // ListFooterComponent={this.getView()}
+          ListFooterComponent={this.getView1()}
           data={data}
           onClickItem={this.onClickItem}
           onRefresh={this.onRefresh}
           onEndReached={this.onEndReached}
-          // rowHeight={60}
+          rowHeight={90}//collection must
           fullListLoaded={fullListLoaded}
-          columns={1}
+          columns={numColumns}//collection only
           refreshing={refreshing}
         />
       </View>
@@ -97,25 +106,17 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: '#333333',
+    backgroundColor: 'red',
   },
   flatList:{
-    // position: 'absolute',
-    // top: 40,
-    // left: 0,
-    // bottom: 0,
-    // right: 0,
-    // backgroundColor:'blue',
-    // position:'relative',
+    backgroundColor:'#999999',
     flex: 1,
-    // width:'100%',
-    // height:'100%',
     marginTop: 50,
     marginBottom: 50,
-    // width: 300,
-    // height: 300,
+  },
+  xx: {
+    marginTop:20,
+    paddingBottom: 30,
   },
   welcome: {
     fontSize: 20,

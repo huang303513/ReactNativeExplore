@@ -41,6 +41,13 @@
 		4D190D5F2230E6C9000CC7C5 /* RNSTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D190D5E2230E6C9000CC7C5 /* RNSTableHeaderView.m */; };
 		4D190D622230E6F4000CC7C5 /* RNSTableHeaderViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D190D612230E6F4000CC7C5 /* RNSTableHeaderViewManager.m */; };
 		4D190DAB22313DDA000CC7C5 /* RNSTableFooterViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D190DAA22313DDA000CC7C5 /* RNSTableFooterViewManager.m */; };
+		4D4D5C722232055200177EB3 /* RNSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D5C712232055200177EB3 /* RNSCollectionView.m */; };
+		4D4D5C9D2232093700177EB3 /* RNSCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D5C9C2232093700177EB3 /* RNSCategoryCollectionViewCell.m */; };
+		4D4D5CA022320E5400177EB3 /* RNSCollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D5C9F22320E5400177EB3 /* RNSCollectionViewManager.m */; };
+		4D4D5CA32232448E00177EB3 /* RNSCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D5CA22232448E00177EB3 /* RNSCollectionHeaderView.m */; };
+		4D4D5CA6223244A500177EB3 /* RNSCollectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D5CA5223244A500177EB3 /* RNSCollectionFooterView.m */; };
+		4D4D5CA92232469C00177EB3 /* RNSCollectionHeaderViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D5CA82232469C00177EB3 /* RNSCollectionHeaderViewManager.m */; };
+		4D4D5CAC223246B600177EB3 /* RNSCollectionFooterViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D5CAB223246B600177EB3 /* RNSCollectionFooterViewManager.m */; };
 		4DBE5BF2223005D800C3D3AA /* RNSHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBE5BF1223005D800C3D3AA /* RNSHomeCell.m */; };
 		4DCDE4EE222FC5970012DF76 /* RNSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDE4ED222FC5970012DF76 /* RNSTableView.m */; };
 		4DCDE4F1222FC7E10012DF76 /* RNSTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDE4F0222FC7E10012DF76 /* RNSTableViewManager.m */; };
@@ -363,6 +370,21 @@
 		4D190DA922313DDA000CC7C5 /* RNSTableFooterViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSTableFooterViewManager.h; sourceTree = "<group>"; };
 		4D190DAA22313DDA000CC7C5 /* RNSTableFooterViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSTableFooterViewManager.m; sourceTree = "<group>"; };
 		4D190E7022316141000CC7C5 /* SHOPConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHOPConstant.h; sourceTree = "<group>"; };
+		4D4D5C702232055200177EB3 /* RNSCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSCollectionView.h; sourceTree = "<group>"; };
+		4D4D5C712232055200177EB3 /* RNSCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionView.m; sourceTree = "<group>"; };
+		4D4D5C9B2232093700177EB3 /* RNSCategoryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSCategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		4D4D5C9C2232093700177EB3 /* RNSCategoryCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSCategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		4D4D5C9E22320E5400177EB3 /* RNSCollectionViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSCollectionViewManager.h; sourceTree = "<group>"; };
+		4D4D5C9F22320E5400177EB3 /* RNSCollectionViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionViewManager.m; sourceTree = "<group>"; };
+		4D4D5CA12232448E00177EB3 /* RNSCollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSCollectionHeaderView.h; sourceTree = "<group>"; };
+		4D4D5CA22232448E00177EB3 /* RNSCollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionHeaderView.m; sourceTree = "<group>"; };
+		4D4D5CA4223244A500177EB3 /* RNSCollectionFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSCollectionFooterView.h; sourceTree = "<group>"; };
+		4D4D5CA5223244A500177EB3 /* RNSCollectionFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionFooterView.m; sourceTree = "<group>"; };
+		4D4D5CA72232469C00177EB3 /* RNSCollectionHeaderViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSCollectionHeaderViewManager.h; sourceTree = "<group>"; };
+		4D4D5CA82232469C00177EB3 /* RNSCollectionHeaderViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionHeaderViewManager.m; sourceTree = "<group>"; };
+		4D4D5CAA223246B600177EB3 /* RNSCollectionFooterViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSCollectionFooterViewManager.h; sourceTree = "<group>"; };
+		4D4D5CAB223246B600177EB3 /* RNSCollectionFooterViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionFooterViewManager.m; sourceTree = "<group>"; };
+		4D4D5CAD2232A0F900177EB3 /* RNSViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSViewProtocol.h; sourceTree = "<group>"; };
 		4DBE5BF0223005D800C3D3AA /* RNSHomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSHomeCell.h; sourceTree = "<group>"; };
 		4DBE5BF1223005D800C3D3AA /* RNSHomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSHomeCell.m; sourceTree = "<group>"; };
 		4DCDE4EC222FC5970012DF76 /* RNSTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSTableView.h; sourceTree = "<group>"; };
@@ -548,6 +570,21 @@
 				4D190DA922313DDA000CC7C5 /* RNSTableFooterViewManager.h */,
 				4D190DAA22313DDA000CC7C5 /* RNSTableFooterViewManager.m */,
 				4D190E7022316141000CC7C5 /* SHOPConstant.h */,
+				4D4D5C702232055200177EB3 /* RNSCollectionView.h */,
+				4D4D5C712232055200177EB3 /* RNSCollectionView.m */,
+				4D4D5C9E22320E5400177EB3 /* RNSCollectionViewManager.h */,
+				4D4D5C9F22320E5400177EB3 /* RNSCollectionViewManager.m */,
+				4D4D5C9B2232093700177EB3 /* RNSCategoryCollectionViewCell.h */,
+				4D4D5C9C2232093700177EB3 /* RNSCategoryCollectionViewCell.m */,
+				4D4D5CA12232448E00177EB3 /* RNSCollectionHeaderView.h */,
+				4D4D5CA22232448E00177EB3 /* RNSCollectionHeaderView.m */,
+				4D4D5CA4223244A500177EB3 /* RNSCollectionFooterView.h */,
+				4D4D5CA5223244A500177EB3 /* RNSCollectionFooterView.m */,
+				4D4D5CA72232469C00177EB3 /* RNSCollectionHeaderViewManager.h */,
+				4D4D5CA82232469C00177EB3 /* RNSCollectionHeaderViewManager.m */,
+				4D4D5CAA223246B600177EB3 /* RNSCollectionFooterViewManager.h */,
+				4D4D5CAB223246B600177EB3 /* RNSCollectionFooterViewManager.m */,
+				4D4D5CAD2232A0F900177EB3 /* RNSViewProtocol.h */,
 			);
 			name = AndroidNativeCustomRefreshView;
 			sourceTree = "<group>";
@@ -1289,13 +1326,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D190D372230E695000CC7C5 /* RNSTableFooterView.m in Sources */,
+				4D4D5CA6223244A500177EB3 /* RNSCollectionFooterView.m in Sources */,
+				4D4D5CA022320E5400177EB3 /* RNSCollectionViewManager.m in Sources */,
 				4D190D5F2230E6C9000CC7C5 /* RNSTableHeaderView.m in Sources */,
+				4D4D5CA32232448E00177EB3 /* RNSCollectionHeaderView.m in Sources */,
 				4DBE5BF2223005D800C3D3AA /* RNSHomeCell.m in Sources */,
 				4DCDE4F1222FC7E10012DF76 /* RNSTableViewManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				4D190DAB22313DDA000CC7C5 /* RNSTableFooterViewManager.m in Sources */,
+				4D4D5C9D2232093700177EB3 /* RNSCategoryCollectionViewCell.m in Sources */,
+				4D4D5C722232055200177EB3 /* RNSCollectionView.m in Sources */,
 				4DCDE4EE222FC5970012DF76 /* RNSTableView.m in Sources */,
 				4D190D622230E6F4000CC7C5 /* RNSTableHeaderViewManager.m in Sources */,
+				4D4D5CA92232469C00177EB3 /* RNSCollectionHeaderViewManager.m in Sources */,
+				4D4D5CAC223246B600177EB3 /* RNSCollectionFooterViewManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,10 +21,14 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 
 @interface RNSTableView ()<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, copy) RCTBubblingEventBlock onClickItem;
-@property (nonatomic, copy) RCTDirectEventBlock onRefresh;
-@property (nonatomic, copy) RCTDirectEventBlock onEndReached;
-
+@property(nonatomic, copy)NSArray *data;
+@property(nonatomic, copy)NSString *renderItem;
+@property(nonatomic, assign)CGFloat rowHeight;
+@property(nonatomic, assign)BOOL refreshing;
+@property(nonatomic, assign)BOOL fullListLoaded;
+@property(nonatomic, copy) RCTBubblingEventBlock onClickItem;
+@property(nonatomic, copy) RCTDirectEventBlock onRefresh;
+@property(nonatomic, copy) RCTDirectEventBlock onEndReached;
 @property(nonatomic, assign)CGFloat cacheHeight;
 
 @property(nonatomic, strong)id cellClass;
@@ -47,6 +51,9 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
       make.edges.equalTo(self);
     }];
+    
+    self.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     __weak __typeof(self) weakSelf = self;
     MJRefreshAutoNormalFooter * footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{

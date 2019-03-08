@@ -1,8 +1,8 @@
 //
-//  SHOPTableView.h
+//  RNSCollectionView.h
 //  AndroidNativeCustomRefreshView
 //
-//  Created by huangchengdu on 2019/3/6.
+//  Created by huangchengdu on 2019/3/8.
 //  Copyright © 2019 Facebook. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RNSTableView : RCTView
+@interface RNSCollectionView : RCTView
 
-@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic, strong)UICollectionView *collectionView;
 
 @end
 

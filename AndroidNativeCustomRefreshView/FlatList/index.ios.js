@@ -1,25 +1,44 @@
 import React, { Component, PropTypes } from 'react';
-import { requireNativeComponent,Text, View,StyleSheet} from 'react-native';
-import TableViewHeader from './TableViewHeader';
-import TableViewFooter from './TableViewFooter';
-var RNSTableView = requireNativeComponent('RNSTableView', null);
+import { requireNativeComponent, StyleSheet} from 'react-native';
+const RNSTableHeaderView = requireNativeComponent('RNSTableHeaderView', null)
+const RNSTableFooterView = requireNativeComponent('RNSTableFooterView', null)
+const RNSTableView = requireNativeComponent('RNSTableView', null);
+const RNSCollectionHeaderView = requireNativeComponent('RNSCollectionHeaderView', null);
+const RNSCollectionFooterView = requireNativeComponent('RNSCollectionFooterView', null);
+const RNSCollectionView = requireNativeComponent('RNSCollectionView', null);
 
 export default class FlatList extends Component {
 
   render() {
-    const { ListHeaderComponent,ListFooterComponent } = this.props;
+    const { ListHeaderComponent,ListFooterComponent,columns } = this.props;
+    if(columns > 1){
+      return (
+        <RNSCollectionView style={styles.container} {...this.props}>
+          <RNSCollectionHeaderView style={styles.defaultBG}>
+              {
+                ListHeaderComponent
+              }
+          </RNSCollectionHeaderView>
+          <RNSCollectionFooterView style={styles.defaultBG}>
+              {
+                ListFooterComponent
+              }
+          </RNSCollectionFooterView>
+        </RNSCollectionView>
+      );
+    }
     return (
       <RNSTableView style={styles.container} {...this.props}>
-        <TableViewHeader>
+        <RNSTableHeaderView>
             {
               ListHeaderComponent
             }
-        </TableViewHeader>
-        <TableViewFooter>
+        </RNSTableHeaderView>
+        <RNSTableFooterView style={styles.defaultBG}>
             {
               ListFooterComponent
             }
-        </TableViewFooter>
+        </RNSTableFooterView>
       </RNSTableView>
     );
   }
@@ -28,6 +47,9 @@ export default class FlatList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+
+  },
+  defaultBG: {
+    backgroundColor: 'brown',
   }
 });
