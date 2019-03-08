@@ -12,7 +12,7 @@
 #import "RNSTableView.h"
 
 @interface RNSTableViewManager ()
-@property (nonatomic) RNSTableView *tableView;
+@property (nonatomic, strong) RNSTableView *tableView;
 @end
 
 @implementation RNSTableViewManager

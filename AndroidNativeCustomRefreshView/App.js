@@ -8,7 +8,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import FlatList from './FlatList/';
 import dataList from './home';
 
@@ -48,11 +48,16 @@ export default class App extends Component {
     </View>;
   }
 
+  scrollToOffset = () => {
+    this._UI.scrollToOffset({offset:60});
+  }
+
   render() {
     const {data, refreshing,fullListLoaded, numColumns} = this.state;
     return (
       <View style={styles.container}>
         <FlatList style={styles.flatList}
+          ref={r=>{this._UI = r;}}
           renderItem={(numColumns === 1)?'RNSHomeCell':'RNSCategoryCollectionViewCell'}
           ListHeaderComponent={this.getView()}
           ListFooterComponent={this.getView1()}
@@ -60,17 +65,32 @@ export default class App extends Component {
           onClickItem={this.onClickItem}
           onRefresh={this.onRefresh}
           onEndReached={this.onEndReached}
+          onScroll={this.onScroll}
+          onScrollBeginDrag={this.onScrollBeginDrag}//开始拖动
+          pullToRefresh={true}//default is true
           rowHeight={90}//collection must
           fullListLoaded={fullListLoaded}
-          columns={numColumns}//collection only
+          numColumns={numColumns}//collection only, default 2
           refreshing={refreshing}
         />
+        <TouchableOpacity
+                    style={styles.scrollToTop}
+                    onPress={this.scrollToOffset}>
+          </TouchableOpacity>
       </View>
     )
   }
 
   onClickItem = (e) => {
     console.log("点击索引==>" + e.nativeEvent.index);
+  }
+
+  onScroll(e){
+    console.log("滚动事件===>" + e.nativeEvent.contentOffset);
+  }
+
+  onScrollBeginDrag(e){
+    console.log("开始拖动===>" + e.nativeEvent.contentOffset);
   }
 
   onRefresh = () =>{
@@ -117,6 +137,11 @@ const styles = StyleSheet.create({
   xx: {
     marginTop:20,
     paddingBottom: 30,
+  },
+  scrollToTop:{
+    width:30,
+    height:30,
+    backgroundColor:'blue',
   },
   welcome: {
     fontSize: 20,

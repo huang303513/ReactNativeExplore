@@ -23,12 +23,12 @@ static const CGFloat kVerticalSPacing = 5.f;
 static const CGFloat kItemSpacing = 5.f;   //item之间的间距  --
 static const CGFloat kCellMargins = 5.f;   //左右缩进
 
-@interface RNSCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,RNSViewProtocol>
+@interface RNSCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,RNSViewProtocol,UIScrollViewDelegate>
 
+@property(nonatomic, assign)NSInteger numColumns;
 @property(nonatomic, strong)RNSCollectionHeaderView *headerView;
 @property(nonatomic, strong)RNSCollectionFooterView *footerView;
 
-@property(nonatomic, assign)CGSize defaultResumViewSize;
 @property(nonatomic, strong)UICollectionViewFlowLayout *layout;
 
 @end
@@ -36,17 +36,15 @@ static const CGFloat kCellMargins = 5.f;   //左右缩进
 
 @implementation RNSCollectionView
 
-@synthesize data = _data,renderItem = _renderItem,rowHeight = _rowHeight,columns = _columns,refreshing = _refreshing,fullListLoaded = _fullListLoaded,onClickItem = _onClickItem,onRefresh = _onRefresh,onEndReached = _onEndReached, cellClass = _cellClass;
+@synthesize data = _data,renderItem = _renderItem,rowHeight = _rowHeight,refreshing = _refreshing,fullListLoaded = _fullListLoaded,onClickItem = _onClickItem,onRefresh = _onRefresh,onEndReached = _onEndReached,onScroll = _onScroll, cellClass = _cellClass,pullToRefresh = _pullToRefresh,onScrollBeginDrag = _onScrollBeginDrag;
 
 - (instancetype)init{
   self = [super init];
   if (self) {
-    self.defaultResumViewSize = CGSizeMake(SCREENWIDTH, 1);
-    self.columns = 2;
+    self.numColumns = 2;
+    self.pullToRefresh = true;
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.footerReferenceSize = self.defaultResumViewSize;
-    layout.headerReferenceSize = self.defaultResumViewSize;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.layout = layout;
     
@@ -97,6 +95,8 @@ static const CGFloat kCellMargins = 5.f;   //左右缩进
 }
 
 
+
+
 #pragma mark setter
 
 -(void)setData:(NSArray *)data{
@@ -134,8 +134,15 @@ static const CGFloat kCellMargins = 5.f;   //左右缩进
   _rowHeight = rowHeight;
 }
 
-- (void)setColumns:(NSInteger)columns{
-  _columns = columns;
+- (void)setNumColumns:(NSInteger)numColumns{
+  _numColumns = numColumns;
+}
+
+- (void)setPullToRefresh:(BOOL)pullToRefresh{
+  _pullToRefresh = pullToRefresh;
+  if (!pullToRefresh) {
+    self.collectionView.mj_header = nil;
+  }
 }
 
 - (void)setFullListLoaded:(BOOL)fullListLoaded{
@@ -189,23 +196,15 @@ static const CGFloat kCellMargins = 5.f;   //左右缩进
     RNSCollectionHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:RNSCollectionViewHeaderIdentifier forIndexPath:indexPath];
     reusableview = header;
     if (self.headerView && reusableview) {
-      [self.headerView removeFromSuperview];
-      self.layout.headerReferenceSize = CGSizeMake(CGRectGetWidth(self.headerView.frame), CGRectGetHeight(self.headerView.frame));
       [reusableview addSubview:self.headerView];
-    }else{
-      self.layout.headerReferenceSize = self.defaultResumViewSize;
     }
   }
   if (kind == UICollectionElementKindSectionFooter) {
      RNSCollectionFooterView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:RNSCollectionViewFooterIdentifier forIndexPath:indexPath];
     reusableview = footer;
     if (self.footerView && reusableview) {
-      [self.footerView removeFromSuperview];
       self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.footerView.frame), CGRectGetHeight(self.footerView.frame));
-      self.layout.footerReferenceSize = CGSizeMake(CGRectGetWidth(self.footerView.frame), CGRectGetHeight(self.footerView.frame));
       [reusableview addSubview:self.footerView];
-    }else{
-      self.layout.footerReferenceSize = self.defaultResumViewSize;
     }
   }
   if (reusableview) {
@@ -219,7 +218,7 @@ static const CGFloat kCellMargins = 5.f;   //左右缩进
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
   if (self.cellClass) {
-   return CGSizeMake((SCREENWIDTH -kItemSpacing*(self.columns-1) - kCellMargins * 2)/self.columns, self.rowHeight);
+   return CGSizeMake((SCREENWIDTH -kItemSpacing*(self.numColumns-1) - kCellMargins * 2)/self.numColumns, self.rowHeight);
   }
   return CGSizeZero;
 }
@@ -241,22 +240,50 @@ static const CGFloat kCellMargins = 5.f;   //左右缩进
   return kVerticalSPacing;
 }
 
-////headerview的size
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-//  
-//  NSLog(@"%@",);
-//  return CGSizeZero;
-//}
-////footer的size
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
-//  
-//}
+//headerview的size
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+
+  if (self.headerView) {
+   return CGSizeMake(CGRectGetWidth(collectionView.frame), CGRectGetHeight(self.headerView.frame));
+  }
+  return CGSizeZero;
+}
+//footer的size
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+  if (self.footerView) {
+    return CGSizeMake(CGRectGetWidth(collectionView.frame), CGRectGetHeight(self.footerView.frame));
+  }
+  return CGSizeZero;
+}
 
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  
+  if ((self.data.count > indexPath.row) && self.onClickItem) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.onClickItem(@{@"index":@(indexPath.row)});
+    });
+  }
 }
+
+#pragma mark UIScrollViewDelegate;
+
+//- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+//    NSLog(@"滑动停止 = page");
+//}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+  self.onScroll(@{@"contentOffset":@{ @"y":@(scrollView.contentOffset.y),@"x":@(scrollView.contentOffset.x)}});
+  });
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+  dispatch_async(dispatch_get_main_queue(), ^{
+    self.onScrollBeginDrag(@{@"contentOffset":@{ @"y":@(scrollView.contentOffset.y),@"x":@(scrollView.contentOffset.x)}});
+  });
+}
+
 
 @end

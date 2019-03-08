@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { requireNativeComponent, StyleSheet} from 'react-native';
+import { requireNativeComponent, NativeModules, StyleSheet} from 'react-native';
 const RNSTableHeaderView = requireNativeComponent('RNSTableHeaderView', null)
 const RNSTableFooterView = requireNativeComponent('RNSTableFooterView', null)
 const RNSTableView = requireNativeComponent('RNSTableView', null);
@@ -9,36 +9,45 @@ const RNSCollectionView = requireNativeComponent('RNSCollectionView', null);
 
 export default class FlatList extends Component {
 
+  scrollToOffset = (params)=>{
+    const { numColumns = 1 } = this.props;
+    if(numColumns == 1){
+      NativeModules.RNSTableViewManager.scrollToOffset(params);
+    }else{
+      NativeModules.RNSCollectionViewManager.scrollToOffset(params);
+    }
+  }
+
   render() {
-    const { ListHeaderComponent,ListFooterComponent,columns } = this.props;
-    if(columns > 1){
+    const { ListHeaderComponent,ListFooterComponent,numColumns = 1 } = this.props;
+    if(numColumns > 1){
       return (
-        <RNSCollectionView style={styles.container} {...this.props}>
-          <RNSCollectionHeaderView style={styles.defaultBG}>
+        <RNSCollectionView style={styles.container} {...this.props} ref={r=>{this.list = r;}}>
+          {ListHeaderComponent && <RNSCollectionHeaderView style={styles.defaultBG}>
               {
                 ListHeaderComponent
               }
-          </RNSCollectionHeaderView>
-          <RNSCollectionFooterView style={styles.defaultBG}>
+          </RNSCollectionHeaderView>}
+          {ListFooterComponent && <RNSCollectionFooterView style={styles.defaultBG}>
               {
                 ListFooterComponent
               }
-          </RNSCollectionFooterView>
+          </RNSCollectionFooterView>}
         </RNSCollectionView>
       );
     }
     return (
-      <RNSTableView style={styles.container} {...this.props}>
-        <RNSTableHeaderView>
-            {
-              ListHeaderComponent
-            }
-        </RNSTableHeaderView>
-        <RNSTableFooterView style={styles.defaultBG}>
-            {
-              ListFooterComponent
-            }
-        </RNSTableFooterView>
+      <RNSTableView style={styles.container} {...this.props} ref={r=>{this.list = r;}}>
+        {ListHeaderComponent && <RNSTableHeaderView style={styles.defaultBG}>
+              {
+                ListHeaderComponent
+              }
+          </RNSTableHeaderView>}
+          {ListFooterComponent && <RNSTableFooterView style={styles.defaultBG}>
+              {
+                ListFooterComponent
+              }
+          </RNSTableFooterView>}
       </RNSTableView>
     );
   }
@@ -51,5 +60,5 @@ const styles = StyleSheet.create({
   },
   defaultBG: {
     backgroundColor: 'brown',
-  }
+  },
 });

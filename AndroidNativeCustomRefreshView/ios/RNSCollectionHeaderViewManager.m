@@ -17,4 +17,9 @@ RCT_EXPORT_MODULE()
   return [[RNSCollectionHeaderView alloc] init];
 }
 
+
+- (dispatch_queue_t)methodQueue
+{
+  return dispatch_get_main_queue();
+}
 @end

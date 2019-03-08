@@ -203,8 +203,10 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.data.count > indexPath.row) {
-    self.onClickItem(@{@"index":@(indexPath.row)});
+  if ((self.data.count > indexPath.row) && self.onClickItem) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.onClickItem(@{@"index":@(indexPath.row)});
+    });
   }
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

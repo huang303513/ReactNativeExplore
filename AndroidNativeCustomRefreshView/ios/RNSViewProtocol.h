@@ -15,12 +15,16 @@
 @property(nonatomic, copy)NSArray *data;
 @property(nonatomic, copy)NSString *renderItem;
 @property(nonatomic, assign)CGFloat rowHeight;
-@property(nonatomic, assign)NSInteger columns;
 @property(nonatomic, assign)BOOL refreshing;
 @property(nonatomic, assign)BOOL fullListLoaded;
 @property(nonatomic, copy) RCTBubblingEventBlock onClickItem;
 @property(nonatomic, copy) RCTDirectEventBlock onRefresh;
 @property(nonatomic, copy) RCTDirectEventBlock onEndReached;
+
+@property(nonatomic, copy) RCTDirectEventBlock onScrollBeginDrag;
+@property(nonatomic, copy)RCTDirectEventBlock onScroll;
+@property(nonatomic, assign)BOOL pullToRefresh;
+
 
 @property(nonatomic, strong)id cellClass;
 

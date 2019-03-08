@@ -9,6 +9,12 @@
 #import "RNSCollectionViewManager.h"
 #import "RNSCollectionView.h"
 
+@interface RNSCollectionViewManager ()
+
+@property (nonatomic, strong) RNSCollectionView *rnsCcollectionView;
+
+@end
+
 @implementation RNSCollectionViewManager
 
 RCT_EXPORT_MODULE()
@@ -19,14 +25,30 @@ RCT_EXPORT_VIEW_PROPERTY(refreshing, BOOL);
 RCT_EXPORT_VIEW_PROPERTY(rowHeight, CGFloat);
 RCT_EXPORT_VIEW_PROPERTY(columns, NSInteger);
 RCT_EXPORT_VIEW_PROPERTY(fullListLoaded, BOOL);
-RCT_EXPORT_VIEW_PROPERTY(onClickItem, RCTBubblingEventBlock)
-RCT_EXPORT_VIEW_PROPERTY(onRefresh, RCTDirectEventBlock)
-RCT_EXPORT_VIEW_PROPERTY(onEndReached, RCTDirectEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(pullToRefresh, BOOL);
+RCT_EXPORT_VIEW_PROPERTY(onClickItem, RCTBubblingEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onScroll, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onRefresh, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onEndReached, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onScrollBeginDrag, RCTDirectEventBlock);
 
 - (UIView *)view
 {
-  RNSCollectionView *view = [[RNSCollectionView alloc] init];
-  return view;
+  self.rnsCcollectionView = [[RNSCollectionView alloc] init];
+  return self.rnsCcollectionView;
+}
+
+RCT_REMAP_METHOD(scrollToOffset, params:(NSDictionary *)params)
+{
+  if (params && params[@"offset"]) {
+    CGFloat offset = [params[@"offset"] floatValue];
+    [self.rnsCcollectionView.collectionView setContentOffset:CGPointMake(0, offset) animated:YES];
+  }
+}
+
+- (dispatch_queue_t)methodQueue
+{
+  return dispatch_get_main_queue();
 }
 
 @end
