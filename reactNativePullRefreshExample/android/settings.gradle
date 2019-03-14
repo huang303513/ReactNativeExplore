@@ -1,3 +1,3 @@
-rootProject.name = 'reactNativePullRefreshExample'
+rootProject.name = 'reactnativepullrefreshexample'
 
 include ':app'
