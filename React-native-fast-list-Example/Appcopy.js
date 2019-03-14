@@ -9,7 +9,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
-// import FlatList from 'react-native-fast-list';
+import FlatList from 'react-native-fast-list';
 import dataList from './home';
 
 export default class App extends Component {
@@ -49,7 +49,7 @@ export default class App extends Component {
     const {data, refreshing,fullListLoaded, numColumns} = this.state;
     return (
       <View style={styles.container}>
-        {/* <FlatList style={styles.flatList}
+        <FlatList style={styles.flatList}
           ref={r=>{this._UI = r;}}
           renderItem={(numColumns === 1)?'RNSHomeCell':'RNSCategoryCollectionViewCell'}
           ListHeaderComponent={this.getView()}
@@ -67,7 +67,7 @@ export default class App extends Component {
           isCurrentVersionOnline={true}
           numColumns={numColumns}//collection only, default 2
           refreshing={refreshing}
-        /> */}
+        />
 
       <View>
         <Text style={styles.welcome}>We大法师t Nativerrrr!</Text>
