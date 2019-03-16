@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="ptr_reactnative_pull_down">松开进行加载</string>
+    <string name="ptr_reactnative_pull_down_to_refresh">下拉进行加载</string>
+    <string name="ptr_reactnative_release_to_refresh">松开进行加载</string>
+    <string name="ptr_reactnative_refreshing">正在努力加载中...</string>
+    <string name="ptr_reactnative_refresh_complete">&#160;</string>
+</resources>

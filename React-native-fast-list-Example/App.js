@@ -51,6 +51,9 @@ export default class App extends Component {
     const {data, refreshing,fullListLoaded, numColumns} = this.state;
     return (
       <View style={styles.container}>
+      <Text style={styles.welcome}>Welcome to React Native!</Text>
+      <Text style={styles.welcome}>Welcome to React Native!</Text>
+      <Text> Hello </Text>
         {/* <FlatList style={styles.flatList}
           ref={r=>{this._UI = r;}}
           renderItem={(numColumns === 1)?'RNSHomeCell':'RNSCategoryCollectionViewCell'}
