@@ -9,10 +9,10 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity,Dimensions} from 'react-native';
-// import FlatList from 'react-native-fast-list';
+import FlatList from 'react-native-fast-list';
 import dataList from './home';
-import ToastExample from './ToastExample';
-import ProgressBar from './progressbar';
+// import ToastExample from './ToastExample';
+// import ProgressBar from './progressbar';
 
 export default class App extends Component {
 
@@ -44,8 +44,8 @@ export default class App extends Component {
   }
 
   scrollToOffset = () => {
-    ToastExample.show("Awesome", ToastExample.SHORT);
-    // this._UI.scrollToOffset({offset:0});
+    // ToastExample.show("Awesome", ToastExample.SHORT);
+    this._UI.scrollToOffset({offset:0});
   }
 
   render() {
@@ -55,7 +55,7 @@ export default class App extends Component {
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text> Hello </Text>
-        {/* <FlatList style={styles.flatList}
+        {(Platform.OS === 'ios') && <FlatList style={styles.flatList}
           ref={r=>{this._UI = r;}}
           renderItem={(numColumns === 1)?'RNSHomeCell':'RNSCategoryCollectionViewCell'}
           ListHeaderComponent={this.getView()}
@@ -73,12 +73,12 @@ export default class App extends Component {
           isCurrentVersionOnline={true}
           numColumns={numColumns}//collection only, default 2
           refreshing={refreshing}
-        /> */}
-        <ProgressBar progress={0} indeterminate={true} style={styles.progressBar}></ProgressBar>
-        <TouchableOpacity
+        />}
+        {/* <ProgressBar progress={0} indeterminate={true} style={styles.progressBar}></ProgressBar> */}
+        {/* <TouchableOpacity
                     style={styles.scrollToTop}
                     onPress={this.scrollToOffset}>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
       </View>
     )
   }

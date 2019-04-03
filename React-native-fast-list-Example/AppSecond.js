@@ -8,9 +8,11 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
+import {Platform, StyleSheet, Text, View,TouchableOpacity,Dimensions} from 'react-native';
 // import FlatList from 'react-native-fast-list';
 import dataList from './home';
+import ToastExample from './ToastExample';
+import ProgressBar from './progressbar';
 
 export default class App extends Component {
 
@@ -42,7 +44,7 @@ export default class App extends Component {
   }
 
   scrollToOffset = () => {
-    this._UI.scrollToOffset({offset:0});
+    ToastExample.show("Awesome", ToastExample.SHORT);
   }
 
   render() {
@@ -69,12 +71,7 @@ export default class App extends Component {
           refreshing={refreshing}
         /> */}
 
-      <View>
-        <Text style={styles.welcome}>We大法师t Nativerrrr!</Text>
-        <Text style={styles.welcome}>We大法师t Native!</Text>
-        <Text style={styles.welcome}>We大法师t Native!</Text>
-        <Text style={styles.welcome}>We大法师t Native!</Text>
-      </View>
+       <ProgressBar progress={0} indeterminate={true} style={styles.progressBar}></ProgressBar>
         <TouchableOpacity
                     style={styles.scrollToTop}
                     onPress={this.scrollToOffset}>
@@ -155,5 +152,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     // marginBottom: 5,
+  },
+  progressBar: {
+    height: 50,
+    // flex: 1,
+    margin: 20,
+    width: Dimensions.get('window').width - 2 * 20,
   },
 });

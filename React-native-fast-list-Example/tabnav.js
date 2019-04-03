@@ -25,8 +25,8 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 // }
 
 const TabNavigator = createBottomTabNavigator({
-  "App": App,
-  "AppSecond": AppSecond,
+  "ios": App,
+  "android": AppSecond,
 });
 
 export default createAppContainer(TabNavigator);
