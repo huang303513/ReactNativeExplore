@@ -1,0 +1,40 @@
+# Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://gitlab.com/huang303513/wshspecs.git'
+platform :ios, '8.0'
+
+target 'NumberTileGame' do
+ # Your 'node_modules' directory is probably in the root of your project,
+  # but if not, adjust the `:path` accordingly
+  pod 'React', :path => '../rn/node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge', # Include this for RN >= 0.47
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'RCTText',
+    'RCTImage',
+    'RCTNetwork',
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation',
+    'RCTLinkingIOS',# react-navigator需要
+    # Needed for FlatList and animations running on native UI thread
+    # Add any other subspecs you want to use in your project
+  ]
+  # Explicitly include Yoga if you are using RN >= 0.42.0
+  pod 'yoga', :path => '../rn/node_modules/react-native/ReactCommon/yoga'
+  pod 'RNVectorIcons', :path => '../rn/node_modules/react-native-vector-icons'#添加字体
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => '../rn/node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../rn/node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../rn/node_modules/react-native/third-party-podspecs/Folly.podspec'
+  
+#  pod 'LibAdHub', :git => 'git@gitlab.com:huang303513/libadhub.git'
+  pod 'LibAdHub', '1.4.0'
+
+end
+
+target 'NumberTileGameTests' do
+    inherit! :search_paths
+    # Pods for testing
+end
+
+

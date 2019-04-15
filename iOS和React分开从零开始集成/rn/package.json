@@ -1,0 +1,30 @@
+{
+  "name": "AwesomeProjectPods",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "jest-expo": "27.0.0",
+    "react-native-scripts": "1.14.0"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start -- --reset-cache",
+    "build": "node node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.js --bundle-output ../ios/NumberTileGame/assets/index.ios.bundle.js --assets-dest ../ios/NumberTileGame/assets -- --reset-cache",
+    "bundleandroid": "node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.android.js  --bundle-output ../XNOnline/src/main/assets/index.android.bundle  --assets-dest ../XNOnline/src/main/res/ -- --reset-cache",
+    "test": "jest"
+  },
+  "dependencies": {
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "babel-preset-react-native-stage-0": "1.0.1",
+    "jest": "22.4.3",
+    "react": "16.3.1",
+    "react-native": "0.54.2",
+    "react-native-vector-icons": "4.6.0",
+    "react-navigation": "1.5.11",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
