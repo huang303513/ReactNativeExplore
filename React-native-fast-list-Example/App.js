@@ -28,15 +28,15 @@ const normalTemplate = [{
   contentIndex: 1,
   type:'imageView',
 },
-// {//标题
-//   rect:[0,0,0,0],
-//   backgroundColor:[255, 255, 255, 1],
-//   type: 'text',
-//   align:'left',//left right center
-//   fontSize: 11,
-//   contentIndex: 2,
-//   color: [25, 25, 25, 1],//文字颜色
-// }
+{//标题
+  rect:[16,160,getZoomIndex(SCREEN_WIDTH - 180),50],//最大高度
+  backgroundColor:[55, 55, 255, 1],
+  color: [255, 255, 255, 1],
+  type: 'text',
+  align:'left',
+  fontSize: 14,
+  contentIndex: 2,
+}
 ];
 
 const secondTemplate = [{

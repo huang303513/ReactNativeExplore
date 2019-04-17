@@ -7,6 +7,7 @@
 //
 
 #import "RNSUILableModel.h"
+#import "UILabel+Size.h"
 #import "RNSConstant.h"
 
 @implementation RNSUILableModel
@@ -53,6 +54,15 @@
     label.font = [UIFont systemFontOfSize:self.fontSize];
   }
   label.text = content;
+  label.numberOfLines = 0;
+  
+  CGFloat height = [UILabel getHeightByWidth:label.frame.size.width title:label.text font:label.font];
+  if (height < self.rect.size.height) {
+    CGRect rect = label.frame;
+    rect.size.height = height;
+    label.frame = rect;
+  }
+  
   return label;
 }
 
