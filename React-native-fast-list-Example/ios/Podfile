@@ -38,7 +38,8 @@ target 'Example' do
   pod 'Masonry'
   pod 'MJRefresh'
   pod 'SDWebImage'
+  pod 'YYModel'
   
-  pod 'RNSFastList', :path => node_modules_path + '/react-native-fast-list'
-  
+#  pod 'RNSFastList', :path => node_modules_path + '/react-native-fast-list'
+
 end

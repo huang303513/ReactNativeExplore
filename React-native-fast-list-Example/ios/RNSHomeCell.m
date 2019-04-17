@@ -8,7 +8,8 @@
 
 #import "RNSHomeCell.h"
 #import "Masonry/Masonry.h"
-#import <RNSFastList/RNSCellProtocol.h>
+//#import <RNSFastList/RNSCellProtocol.h>
+#import "ios/RNSCellProtocol.h"
 #import "SHOPConstant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 

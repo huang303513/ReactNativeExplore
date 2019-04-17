@@ -7,7 +7,8 @@
 //
 
 #import "RNSCategoryCollectionViewCell.h"
-#import <RNSFastList/RNSCellProtocol.h>
+//#import <RNSFastList/RNSCellProtocol.h>
+#import "ios/RNSCellProtocol.h"
 #import "Masonry/Masonry.h"
 #import "SHOPConstant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
