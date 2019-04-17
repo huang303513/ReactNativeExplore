@@ -11,7 +11,11 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		4DF27FD222659CC50094515A /* RNSConvertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FB122659CC50094515A /* RNSConvertView.m */; };
+		4D1F064122670A84006468A2 /* RNSUILableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F064022670A84006468A2 /* RNSUILableModel.m */; };
+		4D1F064722671891006468A2 /* RNSUIImageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F064622671891006468A2 /* RNSUIImageViewModel.m */; };
+		4D1F064A22671CCE006468A2 /* RNSModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F064922671CCE006468A2 /* RNSModelFactory.m */; };
+		4DEAB697226708FE00B3930F /* RNSUIViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAB696226708FE00B3930F /* RNSUIViewModel.m */; };
+		4DF27FD222659CC50094515A /* RNSTemplateConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FB122659CC50094515A /* RNSTemplateConvert.m */; };
 		4DF27FD322659CC50094515A /* RNSTableHeaderViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FB222659CC50094515A /* RNSTableHeaderViewManager.m */; };
 		4DF27FD422659CC50094515A /* RNSTableFooterViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FB622659CC50094515A /* RNSTableFooterViewManager.m */; };
 		4DF27FD522659CC50094515A /* RNSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FB722659CC50094515A /* RNSCollectionView.m */; };
@@ -24,7 +28,6 @@
 		4DF27FDC22659CC60094515A /* RNSCollectionFooterViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FCB22659CC50094515A /* RNSCollectionFooterViewManager.m */; };
 		4DF27FDD22659CC60094515A /* RNSCollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FCE22659CC50094515A /* RNSCollectionViewManager.m */; };
 		4DF27FDE22659CC60094515A /* RNSCollectionHeaderViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FCF22659CC50094515A /* RNSCollectionHeaderViewManager.m */; };
-		4DF27FDF22659CC60094515A /* RNSConvertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FD022659CC50094515A /* RNSConvertModel.m */; };
 		4DF27FE022659CC60094515A /* RNSCollectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FD122659CC50094515A /* RNSCollectionFooterView.m */; };
 		4DF75D72223786A200FB0403 /* ic-place-white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF75D49223786A200FB0403 /* ic-place-white@3x.png */; };
 		4DF75D73223786A200FB0403 /* ic_video@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DF75D6F223786A200FB0403 /* ic_video@3x.png */; };
@@ -55,8 +58,17 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Example/main.m; sourceTree = "<group>"; };
 		1846BBEED576D72833C6FFD8 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D1F063F22670A84006468A2 /* RNSUILableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSUILableModel.h; sourceTree = "<group>"; };
+		4D1F064022670A84006468A2 /* RNSUILableModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSUILableModel.m; sourceTree = "<group>"; };
+		4D1F064522671891006468A2 /* RNSUIImageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSUIImageViewModel.h; sourceTree = "<group>"; };
+		4D1F064622671891006468A2 /* RNSUIImageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSUIImageViewModel.m; sourceTree = "<group>"; };
+		4D1F064822671CCE006468A2 /* RNSModelFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSModelFactory.h; sourceTree = "<group>"; };
+		4D1F064922671CCE006468A2 /* RNSModelFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSModelFactory.m; sourceTree = "<group>"; };
+		4D1F064B226723AC006468A2 /* RNSModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSModelProtocol.h; sourceTree = "<group>"; };
 		4DBCFC5F2265CB3000B1E149 /* RNSConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSConstant.h; sourceTree = "<group>"; };
-		4DF27FB122659CC50094515A /* RNSConvertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSConvertView.m; sourceTree = "<group>"; };
+		4DEAB695226708FE00B3930F /* RNSUIViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSUIViewModel.h; sourceTree = "<group>"; };
+		4DEAB696226708FE00B3930F /* RNSUIViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSUIViewModel.m; sourceTree = "<group>"; };
+		4DF27FB122659CC50094515A /* RNSTemplateConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSTemplateConvert.m; sourceTree = "<group>"; };
 		4DF27FB222659CC50094515A /* RNSTableHeaderViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSTableHeaderViewManager.m; sourceTree = "<group>"; };
 		4DF27FB322659CC50094515A /* RNSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTableView.h; sourceTree = "<group>"; };
 		4DF27FB422659CC50094515A /* RNSTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTableViewManager.h; sourceTree = "<group>"; };
@@ -68,14 +80,13 @@
 		4DF27FBA22659CC50094515A /* RNSCollectionFooterViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSCollectionFooterViewManager.h; sourceTree = "<group>"; };
 		4DF27FBB22659CC50094515A /* RNSTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTableHeaderView.h; sourceTree = "<group>"; };
 		4DF27FBC22659CC50094515A /* RNSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTableViewCell.h; sourceTree = "<group>"; };
-		4DF27FBD22659CC50094515A /* RNSConvertModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSConvertModel.h; sourceTree = "<group>"; };
 		4DF27FBE22659CC50094515A /* RNSCollectionFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSCollectionFooterView.h; sourceTree = "<group>"; };
 		4DF27FBF22659CC50094515A /* RNSCollectionHeaderViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSCollectionHeaderViewManager.h; sourceTree = "<group>"; };
 		4DF27FC022659CC50094515A /* RNSCollectionViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSCollectionViewManager.h; sourceTree = "<group>"; };
 		4DF27FC122659CC50094515A /* RNSTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSTableFooterView.m; sourceTree = "<group>"; };
 		4DF27FC222659CC50094515A /* RNSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSTableView.m; sourceTree = "<group>"; };
 		4DF27FC322659CC50094515A /* RNSTableHeaderViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTableHeaderViewManager.h; sourceTree = "<group>"; };
-		4DF27FC522659CC50094515A /* RNSConvertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSConvertView.h; sourceTree = "<group>"; };
+		4DF27FC522659CC50094515A /* RNSTemplateConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTemplateConvert.h; sourceTree = "<group>"; };
 		4DF27FC622659CC50094515A /* RNSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSCollectionView.h; sourceTree = "<group>"; };
 		4DF27FC722659CC50094515A /* RNSTableFooterViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTableFooterViewManager.h; sourceTree = "<group>"; };
 		4DF27FC822659CC50094515A /* RNSTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSTableViewManager.m; sourceTree = "<group>"; };
@@ -86,7 +97,6 @@
 		4DF27FCD22659CC50094515A /* RNSTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSTableFooterView.h; sourceTree = "<group>"; };
 		4DF27FCE22659CC50094515A /* RNSCollectionViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionViewManager.m; sourceTree = "<group>"; };
 		4DF27FCF22659CC50094515A /* RNSCollectionHeaderViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionHeaderViewManager.m; sourceTree = "<group>"; };
-		4DF27FD022659CC50094515A /* RNSConvertModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSConvertModel.m; sourceTree = "<group>"; };
 		4DF27FD122659CC50094515A /* RNSCollectionFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSCollectionFooterView.m; sourceTree = "<group>"; };
 		4DF75D49223786A200FB0403 /* ic-place-white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic-place-white@3x.png"; sourceTree = "<group>"; };
 		4DF75D6F223786A200FB0403 /* ic_video@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_video@3x.png"; sourceTree = "<group>"; };
@@ -196,10 +206,8 @@
 				4DF27FB722659CC50094515A /* RNSCollectionView.m */,
 				4DF27FC022659CC50094515A /* RNSCollectionViewManager.h */,
 				4DF27FCE22659CC50094515A /* RNSCollectionViewManager.m */,
-				4DF27FBD22659CC50094515A /* RNSConvertModel.h */,
-				4DF27FD022659CC50094515A /* RNSConvertModel.m */,
-				4DF27FC522659CC50094515A /* RNSConvertView.h */,
-				4DF27FB122659CC50094515A /* RNSConvertView.m */,
+				4DF27FC522659CC50094515A /* RNSTemplateConvert.h */,
+				4DF27FB122659CC50094515A /* RNSTemplateConvert.m */,
 				4DF27FCD22659CC50094515A /* RNSTableFooterView.h */,
 				4DF27FC122659CC50094515A /* RNSTableFooterView.m */,
 				4DF27FC722659CC50094515A /* RNSTableFooterViewManager.h */,
@@ -216,6 +224,15 @@
 				4DF27FC822659CC50094515A /* RNSTableViewManager.m */,
 				4DF27FB822659CC50094515A /* RNSViewProtocol.h */,
 				4DBCFC5F2265CB3000B1E149 /* RNSConstant.h */,
+				4DEAB695226708FE00B3930F /* RNSUIViewModel.h */,
+				4DEAB696226708FE00B3930F /* RNSUIViewModel.m */,
+				4D1F063F22670A84006468A2 /* RNSUILableModel.h */,
+				4D1F064022670A84006468A2 /* RNSUILableModel.m */,
+				4D1F064522671891006468A2 /* RNSUIImageViewModel.h */,
+				4D1F064622671891006468A2 /* RNSUIImageViewModel.m */,
+				4D1F064822671CCE006468A2 /* RNSModelFactory.h */,
+				4D1F064922671CCE006468A2 /* RNSModelFactory.m */,
+				4D1F064B226723AC006468A2 /* RNSModelProtocol.h */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -394,21 +411,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DEAB697226708FE00B3930F /* RNSUIViewModel.m in Sources */,
 				4DF27FD822659CC50094515A /* RNSTableView.m in Sources */,
 				4DF27FD922659CC60094515A /* RNSTableViewManager.m in Sources */,
 				4DF27FD522659CC50094515A /* RNSCollectionView.m in Sources */,
 				4DF75D81223786B100FB0403 /* RNSHomeCell.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				4D1F064722671891006468A2 /* RNSUIImageViewModel.m in Sources */,
+				4D1F064122670A84006468A2 /* RNSUILableModel.m in Sources */,
 				4DF27FDA22659CC60094515A /* RNSTableViewCell.m in Sources */,
 				4DF75D84223786B100FB0403 /* RNSCategoryCollectionViewCell.m in Sources */,
-				4DF27FD222659CC50094515A /* RNSConvertView.m in Sources */,
+				4DF27FD222659CC50094515A /* RNSTemplateConvert.m in Sources */,
 				4DF27FDC22659CC60094515A /* RNSCollectionFooterViewManager.m in Sources */,
 				4DF27FE022659CC60094515A /* RNSCollectionFooterView.m in Sources */,
 				4DF27FD322659CC50094515A /* RNSTableHeaderViewManager.m in Sources */,
+				4D1F064A22671CCE006468A2 /* RNSModelFactory.m in Sources */,
 				4DF27FDD22659CC60094515A /* RNSCollectionViewManager.m in Sources */,
 				4DF27FD722659CC50094515A /* RNSTableFooterView.m in Sources */,
 				4DF27FDB22659CC60094515A /* RNSTableHeaderView.m in Sources */,
-				4DF27FDF22659CC60094515A /* RNSConvertModel.m in Sources */,
 				4DF27FD422659CC50094515A /* RNSTableFooterViewManager.m in Sources */,
 				4DF27FD622659CC50094515A /* RNSCollectionHeaderView.m in Sources */,
 				4DF27FDE22659CC60094515A /* RNSCollectionHeaderViewManager.m in Sources */,

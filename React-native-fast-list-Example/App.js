@@ -9,151 +9,51 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity,Dimensions} from 'react-native';
-import FlatList from 'react-native-fast-list';
+import FlatList from './src';
 import dataList from './home';
+import {getZoomIndex} from './platform.js'
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-const normalTemplate = {
-  rect:[0,10,-8,-10],//上左宽高
-  bgColor:[123, 5, 25, 1],// r g b a
-  cornerRadius: 5,  //圆角
-  content:{
-    type: 'view',//View
-  },
-  child:[
-    {
-      rect:[8,8,-8,null],
-      size:[128, null],
-      bgColor:[255, 255, 255, 1],
-      tag:1001,
-      content:{
-        type:'imageView',//UIImageView
-        contentIndex:1,//从1开始
-      },
-    },{
-      rect:[8,{f:'left',t:'right',o:'8',r:1001},-8,-8],
-      bgColor:[255, 255, 255, 1],
-      content:{
-        type:'view',
-      },
-      child:[
-        {//标题
-          rect:[0,0,null,0],
-          bgColor:[255, 255, 255, 1],
-          tag:1003,
-          content: {
-            type: 'text',
-            align:'left',
-            font: 'Pingfang SC',
-            fontSize: 11,
-            contentIndex: 2,
-          },
-        },
-        // {//desc
-        //   rect:[{f:'top',t:'bottom','o': 5, r: 1003},0,null, 0],
-        //   tag:1004,
-        //   content: {
-        //     type: 'text',
-        //     align:'left',
-        //     font: 'Pingfang SC',
-        //     fontSize: 11,
-        //     contentIndex: 3,
-        //   },
-        // },{//优惠券背景
-        //   rect:[{f:'top',t:'bottom','o': 5, r: 1004},0,null, null],
-        //   size:[70, 20],
-        //   tag:1005,
-        //   content:{
-        //     type:'imageView',
-        //     contentIndex:4,
-        //   },
-        // },
-        {//右下角
-          rect:[null,null,0, 0],
-          size:[null,20],
-          tag:1006,
-          bgColor:[25, 25, 255, 1],
-          content:{
-            type:'text',
-            contentIndex: 3,
-            align:'right',
-          },
-        }
-      ],
-    }
-  ],
-};
+const normalTemplate = [{
+  rect:[0,10,getZoomIndex(SCREEN_WIDTH - 20),144],//上左宽高
+  backgroundColor:[255, 255, 255, 1],// r g b a
+  borderRadius: 5,  //圆角
+  type:'view',
+},
+{
+  rect:[16,18,128,128],//上左宽高
+  backgroundColor:[255, 255, 255, 1],// r g b a
+  contentIndex: 1,
+  type:'imageView',
+},
+// {//标题
+//   rect:[0,0,0,0],
+//   backgroundColor:[255, 255, 255, 1],
+//   type: 'text',
+//   align:'left',//left right center
+//   fontSize: 11,
+//   contentIndex: 2,
+//   color: [25, 25, 25, 1],//文字颜色
+// }
+];
 
-const secondTemplate = {
-  rect:[0,10,-8,-10],//上左宽高
-  bgColor:[123, 5, 25, 1],// r g b a
-  cornerRadius: 5,  //圆角
-  content:{
-    type: 'view',//View
-  },
-  child:[
-    {
-      rect:[8,8,-8,null],
-      size:[128, null],
-      bgColor:[255, 255, 255, 1],
-      tag:1001,
-      content:{
-        type:'imageView',//UIImageView
-        contentIndex:1,//从1开始
-      },
-    },{
-      rect:[8,{f:'left',t:'right',o:'8',r:1001},-8,-8],
-      bgColor:[255, 255, 255, 1],
-      content:{
-        type:'view',
-      },
-      child:[
-        {//标题
-          rect:[0,0,null,0],
-          bgColor:[255, 55, 255, 1],
-          tag:1003,
-          content: {
-            type: 'text',
-            align:'left',
-            font: 'Pingfang SC',
-            fontSize: 11,
-            contentIndex: 2,
-          },
-        },
-        // {//desc
-        //   rect:[{f:'top',t:'bottom','o': 5, r: 1003},0,null, 0],
-        //   tag:1004,
-        //   content: {
-        //     type: 'text',
-        //     align:'left',
-        //     font: 'Pingfang SC',
-        //     fontSize: 11,
-        //     contentIndex: 3,
-        //   },
-        // },{//优惠券背景
-        //   rect:[{f:'top',t:'bottom','o': 5, r: 1004},0,null, null],
-        //   size:[70, 20],
-        //   tag:1005,
-        //   content:{
-        //     type:'imageView',
-        //     contentIndex:4,
-        //   },
-        // },
-        {//右下角
-          rect:[null,null,0, 0],
-          size:[null,20],
-          tag:1006,
-          bgColor:[25, 25, 25, 1],
-          content:{
-            type:'text',
-            contentIndex: 3,
-            align:'right',
-          },
-        }
-      ],
-    }
-  ],
-};
+const secondTemplate = [{
+  rect:[0,10,getZoomIndex(SCREEN_WIDTH - 20),144],//上左宽高
+  backgroundColor:[235, 51, 35, 1],// r g b a
+  borderRadius: 5,  //圆角
+  type:'view',
+},
+{//标题
+  rect:[16,160,getZoomIndex(SCREEN_WIDTH - 180),30],
+  backgroundColor:[55, 55, 255, 1],
+  type: 'text',
+  align:'right',
+  fontSize: 11,
+  contentIndex: 2,
+}
+];
 // import ToastExample from './ToastExample';
 // import ProgressBar from './progressbar';
 

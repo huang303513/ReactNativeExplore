@@ -16,6 +16,10 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "RNSViewProtocol.h"
 #import "RNSTableViewCell.h"
+#import <YYModel/YYModel.h>
+#import "RNSUIViewModel.h"
+#import "RNSUILableModel.h"
+#import "RNSModelFactory.h"
 
 
 //NSString *const RNSTableViewCellIdentifier = @"RNSTableViewCellIdentifier";
@@ -89,16 +93,10 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 -(void)setData:(NSArray *)data{
   _data = data;
   [self endRefresh];
-  [self.tableView reloadData];
-}
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+  });
 
--(void)setRenderItem:(NSString *)renderItem{
-  _renderItem = renderItem;
-  Class cls = NSClassFromString(renderItem);
-  self.cellClass = [cls class];
-  if (self.cellClass) {
-    [self.tableView registerClass:self.cellClass forCellReuseIdentifier:_renderItem];
-  }
 }
 
 - (void)setRefreshing:(BOOL)refreshing{
@@ -138,13 +136,19 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
   }
 }
 
-- (void)setCacheHeight:(CGFloat)cacheHeight{
-  _cacheHeight = cacheHeight;
-  self.tableView.estimatedRowHeight = _cacheHeight;
-}
-
 - (void)setRowTemplate:(NSDictionary *)rowTemplate{
-    _rowTemplate = rowTemplate;
+  
+  __block NSMutableDictionary *temp = @{}.mutableCopy;
+  
+  [rowTemplate enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSArray *obj, BOOL * _Nonnull stop) {
+    __block NSMutableArray *viewArray = @[].mutableCopy;
+    [obj enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+      [viewArray addObject:[RNSModelFactory createModel:obj]];
+    }];
+    [temp setValue:viewArray forKey:key];
+  }];
+  
+  _rowTemplate = temp;
 }
 
 - (void)insertReactSubview:(UIView *)subview atIndex:(NSInteger)atIndex
@@ -174,57 +178,20 @@ NSString *const RNSDefaultTableViewCellIdentifier = @"RNSDefaultTableViewCellIde
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    RNSTableViewCell *cell;
-    if (self.cellClass) {
-        cell =[tableView dequeueReusableCellWithIdentifier:self.renderItem forIndexPath:indexPath];
-        if (cell == nil) {
-            cell = [[self.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.renderItem];
-        }
-    }else{
-        cell =[tableView dequeueReusableCellWithIdentifier:RNSDefaultTableViewCellIdentifier forIndexPath:indexPath];
-        if (cell == nil) {
-                    cell = [[RNSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RNSDefaultTableViewCellIdentifier];
-        }
+    RNSTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:RNSDefaultTableViewCellIdentifier forIndexPath:indexPath];
+    if (cell == nil) {
+                cell = [[RNSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RNSDefaultTableViewCellIdentifier];
     }
     
     if (self.data.count > indexPath.row) {
-        
-        if (self.cellClass) {
-          NSDictionary *params = self.data[indexPath.row];
-          [cell setupCellWithParams:params isCurrentVersionOnline:self.isCurrentVersionOnline showFreeBuy:self.showFreeBuy];
-        }else{
-          NSArray *params = self.data[indexPath.row];
-          [cell setupCellWithParams:params rowTemplate:self.rowTemplate];
-        }
+        NSArray *params = self.data[indexPath.row];
+        [cell setupCellWithParams:params rowTemplate:self.rowTemplate[params[0]]];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
-
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.rowHeight) {
     return self.rowHeight;
-  }
-  if (self.cacheHeight > 0) {
-    return self.cacheHeight;
-  }
-  if (self.cellClass) {
-    CGFloat height = [tableView fd_heightForCellWithIdentifier:self.renderItem configuration:^(id cell) {
-      if (self.data.count > indexPath.row) {
-        NSDictionary *params = self.data[indexPath.row];
-        [cell setupCellWithParams:params isCurrentVersionOnline:self.isCurrentVersionOnline  showFreeBuy:self.showFreeBuy];
-      }
-    }];
-    self.cacheHeight = height;
-    return height;
-  }
-  return [tableView fd_heightForCellWithIdentifier:RNSDefaultTableViewCellIdentifier configuration:^(RNSTableViewCell *cell) {
-      if (self.data.count > indexPath.row) {
-          NSArray *params = self.data[indexPath.row];
-          [cell setupCellWithParams:params rowTemplate:self.rowTemplate];
-      }
-  }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

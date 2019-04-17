@@ -9,12 +9,10 @@
 #import "RNSCellProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-
-@class RNSConvertView;
+@class RNSTemplateConvert;
 @interface RNSTableViewCell : UITableViewCell<RNSCellProtocol>
 
-@property(nonatomic, strong)RNSConvertView *convert;
+@property(nonatomic, strong)RNSTemplateConvert *templateConvert;
 
 @end
 

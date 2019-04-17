@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol RNSCellProtocol <NSObject>
 
 @optional
--(void)setupCellWithParams:(NSArray *)params rowTemplate:(NSDictionary *)rowTemplate;
+-(void)setupCellWithParams:(NSArray *)params rowTemplate:(NSArray *)rowTemplate;
 -(void)setupCellWithParams:(NSDictionary *)params isCurrentVersionOnline:(BOOL)isCurrentVersionOnline;
 -(void)setupCellWithParams:(NSDictionary *)params isCurrentVersionOnline:(BOOL)isCurrentVersionOnline showFreeBuy:(BOOL)showFreeBuy;
 
