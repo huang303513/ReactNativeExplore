@@ -20,7 +20,7 @@
   NSString *type = params[@"type"];
   if ([type isEqualToString:@"view"]) {
     model = [RNSUIViewModel yy_modelWithJSON:params];
-  }else if ([type isEqualToString:@"imageView"]) {
+  }else if ([type isEqualToString:@"image"]) {
     model = [RNSUIImageViewModel yy_modelWithJSON:params];
   }else if ([type isEqualToString:@"text"]) {
     model = [RNSUILableModel yy_modelWithJSON:params];

@@ -39,7 +39,7 @@
 - (void)convertTemplateToView:(NSArray *)templates params:(NSArray *)params{
   if (self.templateName && [self.templateName isEqualToString:params[0]]) {//模板一样
     [templates enumerateObjectsUsingBlock:^(id<RNSModelProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-      [obj updateView:self.subViewArray[idx] content:((obj.contentIndex > 0) ? params[obj.contentIndex] : nil)];
+      [obj updateView:self.subViewArray[idx] content:(obj.index > 0 && obj.index < params.count) ? params[obj.index] : nil];
     }];
     
   }else{
@@ -50,7 +50,7 @@
     [self.subViewArray removeAllObjects];
     
     [templates enumerateObjectsUsingBlock:^(id<RNSModelProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-      UIView *currentView = [obj getView:((obj.contentIndex > 0) ? params[obj.contentIndex] : nil)];
+      UIView *currentView = [obj getView:(obj.index > 0 && obj.index < params.count) ? params[obj.index] : nil];
       [self.cell.contentView addSubview:currentView];
       [self.subViewArray addObject:currentView];
     }];

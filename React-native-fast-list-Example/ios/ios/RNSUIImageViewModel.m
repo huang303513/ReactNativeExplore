@@ -12,8 +12,7 @@
 
 @implementation RNSUIImageViewModel
 
-@synthesize rect = _rect, backgroundColor = _backgroundColor, borderRadius = _borderRadius, type = _type, contentIndex = _contentIndex;
-
+@synthesize rect = _rect, backgroundColor = _backgroundColor, borderRadius = _borderRadius, type = _type, content = _content, regular = _regular, index = _index;
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
   [super customTransformFromDictionary:dic];
   NSString *resizeModeStr = dic[@"resizeMode"];
@@ -32,13 +31,30 @@
   if (self.resizeMode) {
      imageView.contentMode = self.resizeMode;
   }
-
-  [imageView sd_setImageWithURL:[NSURL URLWithString:content] placeholderImage:nil options:SDWebImageRefreshCached];
+  
+  NSString *lastContent = [self getLastContent:content];
+  if ([lastContent hasPrefix:@"http"]) {
+    [imageView sd_setImageWithURL:[NSURL URLWithString:lastContent] placeholderImage:nil options:SDWebImageRefreshCached];
+  }else{
+//    NSString *path =  [[NSBundle mainBundle] pathForResource:@"tb-icon-1" ofType:@"png" inDirectory:@"/assets/"];
+    
+    NSString *path =  [[NSBundle mainBundle]resourcePath];
+    NSLog(@"%@",[NSString stringWithFormat:@"%@%@",path,@"/"]);
+    NSLog(@"===%@",NSHomeDirectory());
+    UIImage *image = [UIImage imageNamed:lastContent];
+    if (image) {
+      imageView.image = image;
+    }
+    
+  }
   return imageView;
 }
 
 - (void)updateView:(UIImageView *)view content:(NSString *)content{
-   [view sd_setImageWithURL:[NSURL URLWithString:content] placeholderImage:nil options:SDWebImageRefreshCached];
+  NSString *lastContent = [self getLastContent:content];
+  if ([lastContent hasPrefix:@"http"]) {
+    [view sd_setImageWithURL:[NSURL URLWithString:lastContent] placeholderImage:nil options:SDWebImageRefreshCached];
+  }
 }
 
 

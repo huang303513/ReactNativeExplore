@@ -15,6 +15,7 @@
 		4D1F064722671891006468A2 /* RNSUIImageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F064622671891006468A2 /* RNSUIImageViewModel.m */; };
 		4D1F064A22671CCE006468A2 /* RNSModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F064922671CCE006468A2 /* RNSModelFactory.m */; };
 		4D1F068F2267584F006468A2 /* UILabel+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F068E2267584F006468A2 /* UILabel+Size.m */; };
+		4DBD07C1226971F300D31DBD /* RNSUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBD07C0226971F300D31DBD /* RNSUtil.m */; };
 		4DEAB697226708FE00B3930F /* RNSUIViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAB696226708FE00B3930F /* RNSUIViewModel.m */; };
 		4DF27FD222659CC50094515A /* RNSTemplateConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FB122659CC50094515A /* RNSTemplateConvert.m */; };
 		4DF27FD322659CC50094515A /* RNSTableHeaderViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27FB222659CC50094515A /* RNSTableHeaderViewManager.m */; };
@@ -69,6 +70,8 @@
 		4D1F068D2267584F006468A2 /* UILabel+Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Size.h"; sourceTree = "<group>"; };
 		4D1F068E2267584F006468A2 /* UILabel+Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Size.m"; sourceTree = "<group>"; };
 		4DBCFC5F2265CB3000B1E149 /* RNSConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSConstant.h; sourceTree = "<group>"; };
+		4DBD07BF226971F300D31DBD /* RNSUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSUtil.h; sourceTree = "<group>"; };
+		4DBD07C0226971F300D31DBD /* RNSUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSUtil.m; sourceTree = "<group>"; };
 		4DEAB695226708FE00B3930F /* RNSUIViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSUIViewModel.h; sourceTree = "<group>"; };
 		4DEAB696226708FE00B3930F /* RNSUIViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSUIViewModel.m; sourceTree = "<group>"; };
 		4DF27FB122659CC50094515A /* RNSTemplateConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSTemplateConvert.m; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				4D1F064B226723AC006468A2 /* RNSModelProtocol.h */,
 				4D1F068D2267584F006468A2 /* UILabel+Size.h */,
 				4D1F068E2267584F006468A2 /* UILabel+Size.m */,
+				4DBD07BF226971F300D31DBD /* RNSUtil.h */,
+				4DBD07C0226971F300D31DBD /* RNSUtil.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -363,7 +368,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		38480F659D1E8EAA57398253 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -421,6 +426,7 @@
 				4DF27FD922659CC60094515A /* RNSTableViewManager.m in Sources */,
 				4DF27FD522659CC50094515A /* RNSCollectionView.m in Sources */,
 				4D1F068F2267584F006468A2 /* UILabel+Size.m in Sources */,
+				4DBD07C1226971F300D31DBD /* RNSUtil.m in Sources */,
 				4DF75D81223786B100FB0403 /* RNSHomeCell.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				4D1F064722671891006468A2 /* RNSUIImageViewModel.m in Sources */,

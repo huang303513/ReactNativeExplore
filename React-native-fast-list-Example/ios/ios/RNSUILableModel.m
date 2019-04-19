@@ -12,10 +12,9 @@
 
 @implementation RNSUILableModel
 
-@synthesize rect = _rect, backgroundColor = _backgroundColor, borderRadius = _borderRadius, type = _type, contentIndex = _contentIndex;
-
+@synthesize rect = _rect, backgroundColor = _backgroundColor, borderRadius = _borderRadius, type = _type, content = _content, regular = _regular, index = _index;
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
-  [super customTransformFromDictionary:dic];
+  [self customTransformFromDictionary:dic];
   
   NSString *alignStr = dic[@"align"];
   NSArray *colorArray = dic[@"color"];
@@ -53,21 +52,22 @@
   if (self.fontSize) {
     label.font = [UIFont systemFontOfSize:self.fontSize];
   }
-  label.text = content;
+  
+  
+  label.text = [self getLastContent:content];
   label.numberOfLines = 0;
   
   CGFloat height = [UILabel getHeightByWidth:label.frame.size.width title:label.text font:label.font];
-  if (height < self.rect.size.height) {
+//  if (height < self.rect.size.height) {
     CGRect rect = label.frame;
     rect.size.height = height;
     label.frame = rect;
-  }
-  
+//  }
   return label;
 }
 
 - (void)updateView:(UILabel *)label content:(NSString *)content{
-  label.text = content;
+  label.text = [self getLastContent:content];
 }
 
 @end

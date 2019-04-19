@@ -8,10 +8,11 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,TouchableOpacity,Dimensions} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image,TouchableOpacity,Dimensions} from 'react-native';
 import FlatList from './src';
 import dataList from './home';
 import {getZoomIndex} from './platform.js'
+import tbIcon from './tb-icon-1.png'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -25,8 +26,14 @@ const normalTemplate = [{
 {
   rect:[16,18,128,128],//上左宽高
   backgroundColor:[255, 255, 255, 1],// r g b a
-  contentIndex: 1,
-  type:'imageView',
+  content: '{$1}',
+  type:'image',
+},
+{
+  rect:[16 + 10,18 + 10,30,30],//上左宽高
+  backgroundColor:[25, 255, 255, 1],// r g b a
+  content: 'tb-icon-1.png',
+  type:'image',
 },
 {//标题
   rect:[16,160,getZoomIndex(SCREEN_WIDTH - 180),50],//最大高度
@@ -35,9 +42,8 @@ const normalTemplate = [{
   type: 'text',
   align:'left',
   fontSize: 14,
-  contentIndex: 2,
-}
-];
+  content: '----{$2}---',//三种类型  纯字符串   变量带文字  纯变量
+}];
 
 const secondTemplate = [{
   rect:[0,10,getZoomIndex(SCREEN_WIDTH - 20),144],//上左宽高
@@ -50,6 +56,7 @@ const secondTemplate = [{
   backgroundColor:[55, 55, 255, 1],
   type: 'text',
   align:'right',
+  content:'你好这是测试',
   fontSize: 11,
   contentIndex: 2,
 }
@@ -83,6 +90,7 @@ export default class App extends Component {
       <Text style={styles.welcome}>We大法师t Native!</Text>
       <Text style={styles.welcome}>We大法师t Native!</Text>
       <Text style={styles.welcome}>We大法师t Native!</Text>
+      
     </View>;
   }
 
@@ -109,6 +117,7 @@ export default class App extends Component {
       <View style={styles.container}>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
+      <Image style={{width:30,height: 30,backgroundColor:'green'}} source={tbIcon}></Image>
       <Text> Hello </Text>
         {(Platform.OS === 'ios') && 
         <FlatList style={styles.flatList}

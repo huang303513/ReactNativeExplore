@@ -17,10 +17,15 @@
 @property(nonatomic, strong)UIColor *backgroundColor;
 @property(nonatomic, assign)CGFloat borderRadius;
 @property(nonatomic, strong, nonnull)NSString *type;
-@property(nonatomic, assign)NSInteger contentIndex;
+@property(nonatomic, strong)NSString *content;
+//类似于{$21}
+@property(nonatomic, strong)NSString *regular;
+//21
+@property(nonatomic, assign)NSInteger index;
 
 - (id)getView:(NSString *)content;
 - (void)updateView:(UIView *)view content:(NSString *)content;
+- (NSString *)getLastContent:(NSString *)content;
 
 - (void)customTransformFromDictionary:(NSDictionary *)dic;
 @end
