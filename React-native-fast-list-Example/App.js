@@ -8,11 +8,14 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image,TouchableOpacity,Dimensions} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image,TouchableOpacity,Dimensions,NativeModules} from 'react-native';
 import FlatList from './src';
 import dataList from './home';
 import {getZoomIndex} from './platform.js'
 import tbIcon from './tb-icon-1.png'
+
+// const scriptURL =  NativeModules.RCTSourceCode.scriptURL;
+
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -73,6 +76,7 @@ export default class App extends Component {
       numColumns: 1,
       fullListLoaded: false,
       data: dataList,
+      showImage:false,
     }
   }
 
@@ -96,11 +100,14 @@ export default class App extends Component {
 
   scrollToOffset = () => {
     // ToastExample.show("Awesome", ToastExample.SHORT);
-    this._UI.scrollToOffset({offset:0});
+    // this._UI.scrollToOffset({offset:0});
+    this.setState({
+      showImage: true,
+    });
   }
 
   render() {
-    const {data, refreshing,fullListLoaded, numColumns} = this.state;
+    const {data, refreshing,fullListLoaded, numColumns, showImage} = this.state;
 
     let result = []
     data.map((item,index) =>{
@@ -116,8 +123,9 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Image style={{width:30,height: 30,backgroundColor:'green'}} source={tbIcon}></Image>
+      {/* <Text style={styles.welcome}>{scriptURL}</Text> */}
+      
+      {showImage && <Image style={{width:30,height: 30,backgroundColor:'green'}} source={tbIcon}></Image>}
       <Text> Hello </Text>
         {(Platform.OS === 'ios') && 
         <FlatList style={styles.flatList}
@@ -144,10 +152,10 @@ export default class App extends Component {
           refreshing={refreshing}
         />}
         {/* <ProgressBar progress={0} indeterminate={true} style={styles.progressBar}></ProgressBar> */}
-        {/* <TouchableOpacity
+        <TouchableOpacity
                     style={styles.scrollToTop}
                     onPress={this.scrollToOffset}>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
       </View>
     )
   }
