@@ -41,5 +41,5 @@ target 'Example' do
   pod 'YYModel'
   
 #  pod 'RNSFastList', :path => node_modules_path + '/react-native-fast-list'
-
+ pod 'RNSReactNativeBridge', :path => node_modules_path + '/react-native-bridge'
 end

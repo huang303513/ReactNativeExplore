@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.6.3",
     "react-native": "0.58.6",
+    "react-native-bridge": "^1.0.1",
     "react-native-fast-list": "^1.0.5",
     "react-native-swRefresh": "^1.2.3",
     "react-navigation": "^3.4.0"

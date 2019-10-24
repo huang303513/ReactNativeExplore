@@ -10,6 +10,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity,Dimensions} from 'react-native';
 import FlatList from 'react-native-fast-list';
+import RNSReactNativeBridge from 'react-native-bridge';
 import dataList from './home';
 
 
